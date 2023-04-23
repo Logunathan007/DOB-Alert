@@ -4,6 +4,26 @@ import smtplib
 from email.message import EmailMessage
 import datetime as dt
 
+def declist(dec):
+    key = list(map(int,input("Enter the Key: ").strip().split()))
+    ans = []
+    a = 0;
+    bas = 0;
+    sub2 = []
+    for i in dec:
+        sub = list();
+        for j in i:
+            sub.append(chr(j//key[a]))
+            a+=1;
+            if(a >= len(key)):
+                a=0;
+        if(bas == 4):
+            ans.append(sub2);
+            sub2 = list();
+            bas = 0
+        sub2.append(''.join(sub));
+        bas+=1;
+    return ans;
 
 def msg_format(ls):
     empty_str = ''
